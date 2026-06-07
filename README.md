@@ -2,7 +2,7 @@
 
 Hệ thống AI chạy **100% local** giúp đánh giá và quản lý gear (trang bị) trong game Epic Seven (Smile Gate), sử dụng [Ollama](https://ollama.com/) làm AI runtime.
 
-> 📄 Chi tiết đầy đủ về thiết kế, domain knowledge và kiến trúc nằm trong [`e7-gear-ai-brief.md`](./e7-gear-ai-brief.md) — tài liệu này dùng làm context cho Claude Code CLI khi implement.
+> 📄 Tài liệu thiết kế chi tiết (domain knowledge, kiến trúc, prompt templates...) được giữ riêng tư, dùng làm context cho Claude Code CLI khi implement.
 
 ## Vấn đề cần giải quyết
 
@@ -40,13 +40,3 @@ Hai workflow chính, đều đổ về một AI Engine (Ollama) cho ra **verdict
 2. **Phase 2 — Vision Pipeline**: Ollama + Qwen3-VL 2B đọc screenshot gear → structured data.
 3. **Phase 3 — AI-Powered Evaluation**: Ollama + Qwen3.5 7B reasoning, đưa ra verdict + giải thích.
 4. **Phase 4 — Web UI** (optional): Streamlit/Gradio app với batch upload, screenshot evaluate, manual input, dashboard.
-
-## Bắt đầu với Claude Code CLI
-
-```bash
-claude "Đọc file e7-gear-ai-brief.md và bắt đầu implement Phase 1:
-Deterministic Scoring Engine. Parse Fribbels JSON, tính Gear Score,
-roll efficiency, và phân loại gear. Viết bằng Python."
-```
-
-Xem thêm chi tiết về domain knowledge (gear score formula, substat quality rules, archetype matching, Fribbels data format...) trong [`e7-gear-ai-brief.md`](./e7-gear-ai-brief.md).
